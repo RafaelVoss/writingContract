@@ -1,12 +1,14 @@
 import { ethers } from 'ethers';
+const dotenv = require('dotenv');
+dotenv.config({ path: './config.env' });
 
-const INFURA_ID='';
+const INFURA_ID=process.env.INFURA_ID;
 const provider = new ethers.providers.JsonRpcProvider(`https://sepolia.infura.io/v3/${INFURA_ID}`);
 
-const account1 = ''; // sender
-const account2 = ''; // recipient
+const account1 = process.env.ACCOUNT1; // sender
+const account2 = process.env.ACCOUNT2; // recipient
 
-const privateKey1 = ''; // sender private key
+const privateKey1 = process.env.PRIVATE_KEY1; // sender private key
 const wallet = new ethers.Wallet(privateKey1, provider);
 
 const ERC20_ABI = [
